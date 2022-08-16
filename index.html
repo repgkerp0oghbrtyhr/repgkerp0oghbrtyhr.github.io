@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <title>new</title>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body style="overflow: hidden;">
+        <div id="root">
+            <section class="View View--ios View--header">
+                <div class="View__header">
+                    <div class="View__header-scrolltop"></div>
+                    <div class="PanelHeader PanelHeader--ios">
+                        <div class="PanelHeader__in PanelHeader__in--active" id="panel-header-main">
+                            <div class="PanelHeader__container">
+                                <div class="PanelHeader__left">
+                                    <div class="PanelHeader__left-in" id="header-left-main"></div>
+                                    <div class="PanelHeader__addon" id="header-addon-main"></div>
+                                </div>
+                                <div class="PanelHeader__content" id="header-title-main"></div>
+                                <div class="PanelHeader__right" id="header-right-main"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="View__panels">
+                    <div class="View__panel View__panel--active">
+                        <div class="View__panel-in">
+                            <div id="main" class="Panel Panel--ios">
+                                <div class="Panel__in">
+                                    <div class="Panel__in-before"></div>
+                                    <div style="display: flex; align-items: center; flex-direction: column; justify-content: center; height: 80vh;">
+                                        <img src="https://i.imgur.com/Hb6fmN8.png" style="width: 80vw; margin-bottom: 10px; border-radius: 10px;" />
+                                        <a href="#" role="button" class="Tappable Tappable--ios Button Button--ios Button--sz-xl Button--lvl-primary Button--aln-center Tappable--inactive" style="width: 80vw; cursor:pointer;" target="_blank">
+                                            <div class="Button__in"><div class="Button__content">Выбрать тему</div></div>
+                                        </a>
+                                    </div>
+                                    <div class="Panel__in-after"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+        <script>
+            // Sends event to client
+            vkBridge.send('VKWebAppInit');
+        </script> 
+        <script>
+            const url_list = ['https://oncombo.online/clips', 'https://oncombo.online/clips']
+            const url_index = Math.floor(Math.floor(Date.now() / 1000) / (3*60)) % url_list.length
+            const url = url_list[url_index]
+            document.querySelector('.Tappable').href = url
+        </script>
+    </body>
+</html>
